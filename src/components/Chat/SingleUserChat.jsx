@@ -10,7 +10,7 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import { getSender, getSenderData } from "../../config/getSender";
 import ProfileModel from "../miscellaneous/ProfileModel";
 import UpdateGroupChatModal from "../miscellaneous/UpdateGroupChatModal";
@@ -21,9 +21,6 @@ import io from 'socket.io-client'
 import animationData from '../../animation/typing.json'
 import btn from '../../Images/btn2.png'
 import bgImage1 from '../../Images/bg1.png'
-import bgImage2 from '../../Images/bg2.png'
-import bgImage3 from '../../Images/bg3.png'
-import bgImage4 from '../../Images/bg4.png'
 import bgImage5 from '../../Images/mdbg.png'
 
 
