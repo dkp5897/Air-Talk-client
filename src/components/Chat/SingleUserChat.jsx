@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { chatContext } from "../../context/chatContext";
 import {
   Box,
@@ -24,7 +24,7 @@ import bgImage1 from '../../Images/bg1.png'
 import bgImage5 from '../../Images/mdbg.png'
 
 
-const ENDPOINT = "http://localhost:8050"
+const ENDPOINT = "https://chat-app-ziwf.onrender.com";
 var socket, selectedCompareChat; 
 
 
@@ -135,7 +135,7 @@ const SingleUserChat = ({ fetchAgain, setFetchAgain }) => {
 
 
   //fetching all messages
-  const fetchMessages = async() =>{
+  const fetchMessages = useCallback(async ()=>{
     try {
       if(!selectedChat) return
       setLoading(true);
@@ -158,15 +158,15 @@ const SingleUserChat = ({ fetchAgain, setFetchAgain }) => {
         isClosable: true,
       });
     }
-  }
+  },[toast,user.token,selectedChat])
 
   
 
-  useEffect(()=>{
-    fetchMessages()
-    
+  useEffect(() => {
+    fetchMessages();
+
     selectedCompareChat = selectedChat;
-  },[selectedChat])
+  }, [selectedChat, fetchMessages]);
 
  useEffect(()=>{
   socket.on("message recieved",(newMessageRecieved)=>{
