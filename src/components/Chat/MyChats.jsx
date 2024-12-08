@@ -38,7 +38,7 @@ const MyChats = ({ fetchAgain }) => {
           position: "bottom-left",
         });
       }
-  },[setChatsUsers,toast,user.token])
+  },[setChatsUsers,toast,user.token, baseURL])
 
   useEffect(() => {
     setLoggedUser(user.user);
