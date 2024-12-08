@@ -16,7 +16,7 @@ import ProfileModel from "../miscellaneous/ProfileModel";
 import UpdateGroupChatModal from "../miscellaneous/UpdateGroupChatModal";
 import axios from "axios";
 import MessagesBox from "../messagesBox/MessagesBox";
-import Lottie from 'react-lottie'
+import Lottie from 'react-lottie-player'
 import io from 'socket.io-client'
 import animationData from '../../animation/typing.json'
 import btn from '../../Images/btn2.png'
