@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {config} from "../../config/config";
+const {baseURL} = config;
 
 const SignUP = () => {
   const [show, setShow] = useState(false);
@@ -110,7 +112,7 @@ const SignUP = () => {
        };
 
       const { data } = await axios.post(
-        "https://chat-app-ziwf.onrender.com/api/user/signUp",
+        `${baseURL}/api/user/signUp`,
         {
           name,
           email,
@@ -133,7 +135,7 @@ const SignUP = () => {
     } catch (error) {
       toast({
         title: "Error Occured!",
-        description: error,
+        description: error.response.data.message,
         status: "error",
         duration: 5000,
         isClosable: true,
